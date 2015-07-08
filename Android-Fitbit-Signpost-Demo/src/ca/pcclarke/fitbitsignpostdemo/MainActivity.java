@@ -52,9 +52,9 @@ public class MainActivity extends Activity {
 		
 		mConsumer = new CommonsHttpOAuthConsumer(OAUTH_KEY, OAUTH_SECRET);
 		mProvider = new DefaultOAuthProvider(
-				"http://api.fitbit.com/oauth/request_token",
-				"http://api.fitbit.com/oauth/access_token",
-				"http://www.fitbit.com/oauth/authorize");
+				"https://api.fitbit.com/oauth/request_token",
+				"https://api.fitbit.com/oauth/access_token",
+				"https://www.fitbit.com/oauth/authorize");
 		
 		// Read the preferences to see if we have tokens
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
 	// Action on clicking the request button
 	public void onClickRequest(View view) {
 		if(mConsumer.getToken() != null) {
-			String requestUrl = "http://api.fitbit.com/1/user/-/profile.json";
+			String requestUrl = "https://api.fitbit.com/1/user/-/profile.json";
 			new MakeRequest().execute(requestUrl);
 		} else {
 			Toast.makeText(MainActivity.this, "You must authorize before making requests", Toast.LENGTH_LONG).show();
